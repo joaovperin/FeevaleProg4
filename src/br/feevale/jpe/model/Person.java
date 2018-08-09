@@ -55,7 +55,11 @@ public class Person implements FileReadable<Person>, Comparable<Person> {
 
     @Override
     public int compareTo(Person o) {
-        return this.getAge() - o.getAge();
+        int n = age - o.getAge();
+        if (n == 0) {
+            return name.compareTo(o.getName());
+        }
+        return n;
     }
 
     @Override
